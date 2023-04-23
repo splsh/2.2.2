@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, th, td {
+            border: 1px solid #6f1515;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>manufacturer</th>
+                <th>model</th>
+                <th>engine</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="car, iterStat : ${carList}">
+                <td th:text="${iterStat.index} + 1"></td>
+                <td th:text="${car.manufacturer}"></td>
+                <td th:text="${car.model}"></td>
+                <td th:text="${car.engine}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <form action="cars" method="get">
+        <label for="count">Enter cars count:</label>
+        <input type="text" id="count" name="count"
+               placeholder="Enter cars count">
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>
